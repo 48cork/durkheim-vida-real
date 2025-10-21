@@ -1,12 +1,345 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-BR">
 <head>
-    <title>Teste Site</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Durkheim na Vida Real - Análise Sociológica</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #2c3e50;
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .academic-paper {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 50px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.15);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding-bottom: 30px;
+            border-bottom: 2px solid #e9ecef;
+        }
+
+        h1 {
+            font-size: 3.2rem;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .subtitle {
+            font-size: 1.4rem;
+            color: #6c757d;
+            font-weight: 300;
+        }
+
+        .author {
+            color: #495057;
+            font-style: italic;
+            margin-top: 10px;
+        }
+
+        .abstract {
+            background: #f8f9fa;
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            border-left: 5px solid #3498db;
+        }
+
+        .abstract h2 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+        }
+
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+            gap: 40px;
+            margin-bottom: 50px;
+        }
+
+        .hobby-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid #e9ecef;
+        }
+
+        .hobby-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .hobby-header {
+            padding: 30px;
+            color: white;
+            text-align: center;
+        }
+
+        .confeitaria-header {
+            background: linear-gradient(135deg, #8B4513, #D2691E);
+        }
+
+        .desenho-header {
+            background: linear-gradient(135deg, #4169E1, #6A5ACD);
+        }
+
+        .hobby-header h2 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+        }
+
+        .hobby-content {
+            padding: 30px;
+        }
+
+        .concept-section {
+            margin-bottom: 30px;
+        }
+
+        .concept-title {
+            font-size: 1.3rem;
+            color: #2c3e50;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e9ecef;
+            font-weight: 600;
+        }
+
+        .theory-point {
+            background: #f8f9fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border-left: 4px solid #3498db;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .theory-point:hover {
+            background: #e9ecef;
+            transform: translateX(10px);
+        }
+
+        .theory-analysis {
+            background: #e8f4f8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 10px;
+            display: none;
+            border-left: 4px solid #27ae60;
+        }
+
+        .theory-analysis.show {
+            display: block;
+            animation: slideDown 0.5s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .methodology {
+            background: #fff3cd;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border-left: 5px solid #ffc107;
+        }
+
+        .methodology h2 {
+            color: #856404;
+            margin-bottom: 15px;
+        }
+
+        .conclusion {
+            background: #d1ecf1;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 40px;
+            border-left: 5px solid #17a2b8;
+        }
+
+        .conclusion h2 {
+            color: #0c5460;
+            margin-bottom: 15px;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid #e9ecef;
+            color: #6c757d;
+        }
+
+        @media (max-width: 768px) {
+            .hobby-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 20px 10px;
+            }
+            
+            .academic-paper {
+                padding: 30px 20px;
+            }
+            
+            h1 {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
-<body style="background: blue; color: white;">
-    <h1>🎓 OI, FUNCIONOU! 🎓</h1>
-    <p>Se você está vendo isso, o site está funcionando!</p>
-    <p>Background azul = tudo certo! ✅</p>
+<body>
+    <div class="container">
+        <div class="academic-paper">
+            <header>
+                <h1>Durkheim na Vida Real</h1>
+                <p class="subtitle">Uma Análise Sociológica Aplicada a Hobbies Contemporâneos</p>
+                <p class="author">Material Didático - Sociologia Universitária</p>
+            </header>
+
+            <section class="abstract">
+                <h2>📋 Resumo Acadêmico</h2>
+                <p>Este material explora a aplicação dos conceitos durkheimianos de <strong>Solidariedade Mecânica e Orgânica</strong>, <strong>Divisão do Trabalho</strong>, <strong>Consciência Coletiva</strong> e <strong>Anomia</strong> em contextos de hobbies profissionais, demonstrando a atualidade da teoria sociológica clássica na análise de fenômenos sociais contemporâneos.</p>
+            </section>
+
+            <div class="hobby-grid">
+                <!-- Confeitaria -->
+                <article class="hobby-card">
+                    <div class="hobby-header confeitaria-header">
+                        <h2>🎂 Confeitaria Profissional</h2>
+                        <p>Análise Sociológica do Mercado</p>
+                    </div>
+                    <div class="hobby-content">
+                        <section class="concept-section">
+                            <h3 class="concept-title">Solidariedade: Mecânica → Orgânica</h3>
+                            <div class="theory-point" onclick="toggleAnalysis('conf1')">
+                                <strong>Fase Mecânica:</strong> Padronização e tradição
+                            </div>
+                            <div id="conf1" class="theory-analysis">
+                                <p>Na fase inicial, observa-se a <strong>solidariedade mecânica</strong> através da adesão a receitas tradicionais e técnicas consagradas. Todos os agentes reproduzem os mesmos padrões, caracterizando a homogeneidade típica das sociedades simples.</p>
+                            </div>
+
+                            <div class="theory-point" onclick="toggleAnalysis('conf2')">
+                                <strong>Fase Orgânica:</strong> Especialização e inovação
+                            </div>
+                            <div id="conf2" class="theory-analysis">
+                                <p>Com a profissionalização, emerge a <strong>solidariedade orgânica</strong>. Desenvolve-se interdependência entre confeiteiros, food stylists, fotógrafos e fornecedores especializados, exemplificando a complexidade das sociedades modernas.</p>
+                            </div>
+                        </section>
+
+                        <section class="concept-section">
+                            <h3 class="concept-title">Divisão do Trabalho Especializado</h3>
+                            <div class="theory-point" onclick="toggleAnalysis('conf3')">
+                                Estrutura Organizacional Complexa
+                            </div>
+                            <div id="conf3" class="theory-analysis">
+                                <p>A evolução da confeitaria demonstra a <strong>divisão do trabalho social</strong> descrita por Durkheim. Da cozinha doméstica unifuncional ao ecossistema atual com especialistas em decoração, massas, fotografia e logística.</p>
+                            </div>
+                        </section>
+                    </div>
+                </article>
+
+                <!-- Desenho -->
+                <article class="hobby-card">
+                    <div class="hobby-header desenho-header">
+                        <h2>🎨 Mercado Criativo</h2>
+                        <p>Análise do Campo Artístico</p>
+                    </div>
+                    <div class="hobby-content">
+                        <section class="concept-section">
+                            <h3 class="concept-title">Fatos Sociais no Mundo Artístico</h3>
+                            <div class="theory-point" onclick="toggleAnalysis('art1')">
+                                <strong>Pressão Normativa:</strong> Tendências e modas
+                            </div>
+                            <div id="art1" class="theory-analysis">
+                                <p>As tendências artísticas funcionam como <strong>fatos sociais</strong> exteriores e coercitivos. Artistas são influenciados por movimentos estéticos independentemente de sua vontade individual, demonstrando a força da consciência coletiva.</p>
+                            </div>
+
+                            <div class="theory-point" onclick="toggleAnalysis('art2')">
+                                <strong>Regulação Social:</strong> Crítica e reconhecimento
+                            </div>
+                            <div id="art2" class="theory-analysis">
+                                <p>O sistema de críticas, curadoria e reconhecimento atua como mecanismo regulador, definindo o que é considerado "arte legítima" e orientando a produção criativa segundo normas sociais estabelecidas.</p>
+                            </div>
+                        </section>
+
+                        <section class="concept-section">
+                            <h3 class="concept-title">Anomia Criativa</h3>
+                            <div class="theory-point" onclick="toggleAnalysis('art3')">
+                                Crises de Orientação Normativa
+                            </div>
+                            <div id="art3" class="theory-analysis">
+                                <p>Situações de <strong>anomia</strong> ocorrem durante transições estéticas, briefings contraditórios ou bloqueios criativos, onde as normas estabelecidas se mostram insuficientes para orientar a produção artística.</p>
+                            </div>
+                        </section>
+                    </div>
+                </article>
+            </div>
+
+            <section class="methodology">
+                <h2>🔍 Metodologia de Aplicação</h2>
+                <p><strong>Dinâmica em Grupo:</strong> Divida a turma em grupos para análise de diferentes profissões/hobbies sob a perspectiva durkheimiana. Cada grupo deve identificar exemplos de solidariedade mecânica, orgânica, fatos sociais reguladores e situações de anomia.</p>
+                <p><strong>Discussão Orientada:</strong> Promova debate sobre como os conceitos clássicos se mantêm relevantes para entender a organização social contemporânea.</p>
+            </section>
+
+            <section class="conclusion">
+                <h2>💡 Conclusão Acadêmica</h2>
+                <p>Esta análise demonstra a permanente utilidade da teoria durkheimiana para compreender a evolução de atividades profissionais e de lazer na sociedade complexa. Os conceitos de solidariedade, divisão do trabalho e fatos sociais revelam-se ferramentas analíticas poderosas para desvendar a estrutura social implícita em práticas aparentemente individuais.</p>
+            </section>
+
+            <footer>
+                <p>Material Didático - Sociologia | Conceitos de Émile Durkheim aplicados a contextos contemporâneos</p>
+                <p>Recurso educativo para ensino superior - Análise sociológica aplicada</p>
+            </footer>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnalysis(id) {
+            const analysis = document.getElementById(id);
+            analysis.classList.toggle('show');
+        }
+
+        // Fechar análises quando clicar fora
+        document.addEventListener('click', function(event) {
+            if (!event.target.classList.contains('theory-point')) {
+                document.querySelectorAll('.theory-analysis.show').forEach(analysis => {
+                    analysis.classList.remove('show');
+                });
+            }
+        });
+    </script>
 </body>
 </html>
-Teste site azul
